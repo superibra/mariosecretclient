@@ -1,4 +1,4 @@
-package clientMario;
+package gui.notification;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

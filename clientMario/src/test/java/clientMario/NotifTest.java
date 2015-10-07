@@ -7,8 +7,10 @@ import tn.mario.moovtn.entities.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import tn.mario.moovtn.business.notification.NotificationManagerRemote;
 
+import tn.mario.moovtn.entities.*;
+import tn.mario.moovtn.remotes.*;
+import tn.mario.moovtn.implementations.*;
 
 public class NotifTest  {
 	NotificationManagerRemote userService;
