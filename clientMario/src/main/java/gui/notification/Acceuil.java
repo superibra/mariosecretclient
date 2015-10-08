@@ -1,5 +1,7 @@
 package gui.notification;
 
+import gui.notification.delegate.NotificationDelegate;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -11,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+
 
 
 
@@ -34,7 +37,7 @@ import javax.swing.DefaultComboBoxModel;
 public class Acceuil extends JFrame {
 
 	private JPanel contentPane;
-	NotificationManagerRemote userService;
+	NotificationDelegate delegate;
 	/**
 	 * Launch the application.
 	 */
@@ -118,11 +121,10 @@ public class Acceuil extends JFrame {
 		panel.add(comboBox_1);
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					userService=  (NotificationManagerRemote) new InitialContext().lookup("persist/NotificationManager!"+NotificationManagerRemote.class.getCanonicalName());
+				
 					Notification notif = new Notification();
 					notif.setDescription(textArea.getText());
-					notif.setId(9);
+					notif.setId(10);
 					notif.setLevel(Integer.parseInt((String) comboBox_1.getItemAt(comboBox_1.getSelectedIndex())));
 					notif.setBroadcast(chckbxBroadcastYourNotification.isSelected());
 					java.util.Date act = new java.util.Date();
@@ -132,14 +134,13 @@ public class Acceuil extends JFrame {
 					notif.setCreationDate(java.sql.Date.valueOf(date));
 					System.out.println(date);
 						//System.out.println(Users.class.getField("serialVersionUID").get(user));
-						userService.add(notif);
+					delegate =  new NotificationDelegate();
+					
+					delegate.doAdd(notif);
 						//System.out.println(userService.getAllUsers().get(0).getNom());
 						System.out.println("add ok");
 				
-				} catch (NamingException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+
 				
 			}
 		});
