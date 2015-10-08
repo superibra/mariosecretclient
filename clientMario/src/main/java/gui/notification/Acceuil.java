@@ -119,10 +119,10 @@ public class Acceuil extends JFrame {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					userService=  (NotificationManagerRemote) new InitialContext().lookup("amine/NotificationManager!"+NotificationManagerRemote.class.getCanonicalName());
+					userService=  (NotificationManagerRemote) new InitialContext().lookup("persist/NotificationManager!"+NotificationManagerRemote.class.getCanonicalName());
 					Notification notif = new Notification();
 					notif.setDescription(textArea.getText());
-					notif.setId(8);
+					notif.setId(9);
 					notif.setLevel(Integer.parseInt((String) comboBox_1.getItemAt(comboBox_1.getSelectedIndex())));
 					notif.setBroadcast(chckbxBroadcastYourNotification.isSelected());
 					java.util.Date act = new java.util.Date();
