@@ -19,4 +19,20 @@ public class NotificationDelegate {
 	public List<Notification> doGetAll() {
 		return getInstance().getAllNotification();
 	}
+	public void doUpdate(Notification a){
+		
+		getInstance().update(a);
+		
+		
+	}
+	public void doDelete(Notification a){
+		
+		getInstance().delete(a);
+		
+		
+	}
+	public List<Notification> doFindByLevel(int level) {
+		return getInstance().findByLevel(level);
+	}
+	
 }

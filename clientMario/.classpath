@@ -33,5 +33,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="src/main/resources/jaco-mp3-player-0.9.3.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
