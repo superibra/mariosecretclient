@@ -6,13 +6,16 @@ import java.awt.EventQueue;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableModel;
 
 import gui.notification.delegate.NotificationDelegate;
 import gui.panels.ImagePanel;
+import gui.rent.RentTableModel;
 
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
@@ -92,7 +95,11 @@ public class getAllNotifications extends JFrame {
 				Notification notif = new Notification();
 				notif =notifications.get(table.getSelectedRow());
 				delegate.doDelete(notif);
-				
+				 //JOptionPane.showMessageDialog(rootPane, "Deleted !");
+	               // this.dispose();
+				notifications=new NotificationDelegate().doGetAll();
+				 initDataBindings();
+	
 			}
 		});
 		scrollPane = new JScrollPane();
@@ -133,8 +140,11 @@ public class getAllNotifications extends JFrame {
 					notif=notifications.get(row);
 					notif.setDescription((String) table.getValueAt(row, table.getSelectedColumn()));
 					delegate.doUpdate(notif);
-					
+					 
+				
 					System.out.println("ok");
+					notifications=new NotificationDelegate().doGetAll();
+					 initDataBindings();
 					}
 	    		}
 	    	});
