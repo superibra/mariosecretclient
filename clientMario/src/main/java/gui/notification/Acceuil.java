@@ -124,9 +124,10 @@ public class Acceuil extends JFrame {
 				
 					Notification notif = new Notification();
 					notif.setDescription(textArea.getText());
-					notif.setId(10);
+					
 					notif.setLevel(Integer.parseInt((String) comboBox_1.getItemAt(comboBox_1.getSelectedIndex())));
 					notif.setBroadcast(chckbxBroadcastYourNotification.isSelected());
+					
 					java.util.Date act = new java.util.Date();
 					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 					 String date = dateFormat.format(act);
